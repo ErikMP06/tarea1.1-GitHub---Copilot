@@ -1,0 +1,116 @@
+:root {
+    --ink: #172a3a;
+    --muted: #607386;
+    --accent: #0f766e;
+    --accent-light: #d9f3ee;
+    --surface: rgba(255, 255, 255, 0.92);
+    --line: #e4ecef;
+    --shadow: 0 24px 60px rgba(26, 55, 71, 0.13);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(2rem, 8vw, 6rem) 1.25rem;
+    color: var(--ink);
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(45, 212, 191, 0.22), transparent 28%),
+        radial-gradient(circle at 92% 84%, rgba(251, 191, 36, 0.18), transparent 26%),
+        #f4f8f8;
+}
+
+body::before {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background-image: linear-gradient(rgba(15, 118, 110, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 118, 110, 0.06) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    content: "";
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+body > h1,
+body > p {
+    width: min(100%, 720px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding: clamp(2.25rem, 7vw, 4.5rem) clamp(1.5rem, 7vw, 4rem);
+    border-radius: 1.5rem;
+    color: #ffffff;
+    font-size: clamp(2.4rem, 8vw, 4.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    background: linear-gradient(135deg, #115e59, #0f766e 62%, #14b8a6);
+    box-shadow: var(--shadow);
+}
+
+h1::after {
+    display: block;
+    width: 4rem;
+    height: 0.28rem;
+    margin-top: 1.4rem;
+    border-radius: 99rem;
+    background: #fbbf24;
+    content: "";
+}
+
+p {
+    display: grid;
+    grid-template-columns: minmax(8.5rem, 30%) 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    padding: 1.15rem 1.35rem;
+    border: 1px solid var(--line);
+    border-radius: 0.95rem;
+    background: var(--surface);
+    box-shadow: 0 8px 24px rgba(26, 55, 71, 0.05);
+}
+
+strong {
+    color: var(--accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+p:not(:last-child) {
+    margin-bottom: 0.8rem;
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 1.25rem 1rem 2.5rem;
+    }
+
+    h1 {
+        border-radius: 1.1rem;
+    }
+
+    p {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        padding: 1rem 1.1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+}
